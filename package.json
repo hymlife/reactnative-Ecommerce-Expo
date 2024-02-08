@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.0.6",
     "caniuse-lite": "^1.0.30001585",

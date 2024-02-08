@@ -25,7 +25,7 @@ export function Cart({ navigation }) {
         <Text style={styles.lineLeft}>
           {item.product.name} x {item.qty}
         </Text>
-        <Text style={styles.lineRight}>$ {item.totalPrice}</Text>
+        <Text style={styles.lineRight}>{item.totalPrice} TL</Text>
       </View>
     );
   }
