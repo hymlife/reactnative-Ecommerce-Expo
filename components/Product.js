@@ -21,11 +21,19 @@ export function Product({ name, price, image, onPress, id }) {
       <Image style={styles.thumb} source={image} />
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.price}>$ {price}</Text>
-        <TouchableOpacity>
-          <Text>sepete ekle</Text>
+        <Text style={styles.price}>{price} TL</Text>
+        <TouchableOpacity
+          onPress={onAddToCart}
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <View
+            style={{ backgroundColor: "orange", padding: 15, borderRadius: 10 }}
+          >
+            <Text>Sepete Ekle</Text>
+          </View>
         </TouchableOpacity>
-        <Button onPress={onAddToCart} title="Add to cart" />
       </View>
     </TouchableOpacity>
   );

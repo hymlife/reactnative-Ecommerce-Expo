@@ -5,7 +5,7 @@ import {
   View,
   ScrollView,
   SafeAreaView,
-  Button,
+  TouchableOpacity,
   StyleSheet,
 } from "react-native";
 
@@ -32,9 +32,24 @@ export function ProductDetails({ route }) {
         <Image style={styles.image} source={product.image} />
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{product.name}</Text>
-          <Text style={styles.price}>$ {product.price}</Text>
+          <Text style={styles.price}>{product.price} TL</Text>
           <Text style={styles.description}>{product.description}</Text>
-          <Button onPress={onAddToCart} title="Add to cart" />
+          <TouchableOpacity
+            onPress={onAddToCart}
+            style={{
+              alignItems: "center",
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: "orange",
+                padding: 15,
+                borderRadius: 10,
+              }}
+            >
+              <Text>Sepete Ekle</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

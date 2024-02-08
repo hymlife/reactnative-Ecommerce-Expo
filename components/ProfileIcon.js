@@ -3,17 +3,17 @@ import { View, Text, StyleSheet } from "react-native";
 
 import { CartContext } from "../CartContext";
 
-export function CartIcon({ navigation }) {
+export function ProfileIcon({ navigation }) {
   const { getItemsCount } = useContext(CartContext);
   return (
     <View style={styles.container}>
       <Text
         style={styles.text}
         onPress={() => {
-          navigation.navigate("Cart");
+          navigation.navigate("Profile");
         }}
       >
-        Sepet ({getItemsCount()})
+        Profil
       </Text>
     </View>
   );

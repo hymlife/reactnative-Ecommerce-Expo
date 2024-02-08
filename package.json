@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.0.6",
+    "caniuse-lite": "^1.0.30001585",
     "expo": "^47.0.0",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
