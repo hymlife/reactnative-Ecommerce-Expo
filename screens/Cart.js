@@ -1,34 +1,35 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import React, { useEffect, useState, useContext } from "react";
+import { View, Text, Button, FlatList, StyleSheet } from "react-native";
 
-import { CartContext } from '../CartContext';
+import { CartContext } from "../CartContext";
 
-export function Cart ({navigation}) {
+export function Cart({ navigation }) {
+  const { items, getItemsCount, getTotalPrice } = useContext(CartContext);
 
-  const {items, getItemsCount, getTotalPrice} = useContext(CartContext);
-  
   function Totals() {
     let [total, setTotal] = useState(0);
     useEffect(() => {
       setTotal(getTotalPrice());
     });
     return (
-       <View style={styles.cartLineTotal}>
-          <Text style={[styles.lineLeft, styles.lineTotal]}>Total</Text>
-          <Text style={styles.lineRight}>$ {total}</Text>
-       </View>
+      <View style={styles.cartLineTotal}>
+        <Text style={[styles.lineLeft, styles.lineTotal]}>Toplam Fiyat</Text>
+        <Text style={styles.lineRight}> {total} TL</Text>
+      </View>
     );
   }
 
-  function renderItem({item}) {
+  function renderItem({ item }) {
     return (
-       <View style={styles.cartLine}>
-          <Text style={styles.lineLeft}>{item.product.name} x {item.qty}</Text>
-          <Text style={styles.lineRight}>$ {item.totalPrice}</Text>
-       </View>
+      <View style={styles.cartLine}>
+        <Text style={styles.lineLeft}>
+          {item.product.name} x {item.qty}
+        </Text>
+        <Text style={styles.lineRight}>$ {item.totalPrice}</Text>
+      </View>
     );
   }
-  
+
   return (
     <FlatList
       style={styles.itemsList}
@@ -42,35 +43,35 @@ export function Cart ({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  cartLine: { 
-    flexDirection: 'row',
+  cartLine: {
+    flexDirection: "row",
   },
-  cartLineTotal: { 
-    flexDirection: 'row',
-    borderTopColor: '#dddddd',
-    borderTopWidth: 1
+  cartLineTotal: {
+    flexDirection: "row",
+    borderTopColor: "#dddddd",
+    borderTopWidth: 1,
   },
   lineTotal: {
-    fontWeight: 'bold',    
+    fontWeight: "bold",
   },
   lineLeft: {
-    fontSize: 20, 
-    lineHeight: 40, 
-    color:'#333333' 
+    fontSize: 20,
+    lineHeight: 40,
+    color: "#333333",
   },
-  lineRight: { 
+  lineRight: {
     flex: 1,
-    fontSize: 20, 
-    fontWeight: 'bold',
-    lineHeight: 40, 
-    color:'#333333', 
-    textAlign:'right',
+    fontSize: 20,
+    fontWeight: "bold",
+    lineHeight: 40,
+    color: "#333333",
+    textAlign: "right",
   },
   itemsList: {
-    backgroundColor: '#eeeeee',
+    backgroundColor: "#eeeeee",
   },
   itemsListContainer: {
-    backgroundColor: '#eeeeee',
+    backgroundColor: "#eeeeee",
     paddingVertical: 8,
     marginHorizontal: 8,
   },
